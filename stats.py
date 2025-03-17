@@ -4,8 +4,12 @@ def word_count(text):
    return total_words
 
 def letter_count(text):
-   letter_dict = {}
-   all_letters = set(text.lower())
-   for a in all_letters:
-     letter_dict[a] = text.lower().count(a)
-   return letter_dict
+   letters_dict = {}
+   for l in text:
+      lowered = l.lower()
+      if lowered in letters_dict:
+         letters_dict[lowered] += 1
+      else:
+         letters_dict[lowered] = 1
+#   sorted_dict = {k: v for k, v in sorted(letters_dict.items(), key=lambda item:item[1], reverse=True)}
+   return letters_dict
